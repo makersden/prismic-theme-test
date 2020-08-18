@@ -1,0 +1,1565 @@
+{
+  "Header" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "Slug",
+        "placeholder" : "The URL path at which the page will be published"
+      }
+    },
+    "page_name" : {
+      "type" : "Text",
+      "config" : {
+        "useAsTitle" : true,
+        "label" : "Internal Page Name",
+        "placeholder" : "Internal page name in Prismic (not part of published page)"
+      }
+    },
+    "metadata" : {
+      "type" : "Group",
+      "config" : {
+        "repeat" : false,
+        "fields" : {
+          "title" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "Title",
+              "placeholder" : "The title shown on the browser tab"
+            }
+          },
+          "description" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "Description",
+              "placeholder" : "The page description placed in HEAD, shown in search results etc."
+            }
+          },
+          "robots_index" : {
+            "type" : "Select",
+            "config" : {
+              "options" : [ "index", "noindex" ],
+              "default_value" : "index",
+              "label" : "Robots Index"
+            }
+          },
+          "robots_follow" : {
+            "type" : "Select",
+            "config" : {
+              "options" : [ "follow", "nofollow" ],
+              "default_value" : "follow",
+              "label" : "Robots Follow"
+            }
+          },
+          "canonical_link" : {
+            "type" : "Link",
+            "config" : {
+              "label" : "Canonical Link",
+              "placeholder" : "The default link to this page"
+            }
+          },
+          "share_image" : {
+            "type" : "Image",
+            "config" : {
+              "constraint" : {
+                "width" : null,
+                "height" : null
+              },
+              "thumbnails" : [ ],
+              "label" : "Share Image"
+            }
+          }
+        },
+        "label" : "Metadata"
+      }
+    },
+    "promotion" : {
+      "type" : "Link",
+      "config" : {
+        "select" : "document",
+        "customtypes" : [ "promotion" ],
+        "label" : "Promotion"
+      }
+    }
+  },
+  "Main" : {
+    "show_header" : {
+      "type" : "Select",
+      "config" : {
+        "options" : [ "Yes", "No" ],
+        "default_value" : "Yes",
+        "label" : "Show Header",
+        "placeholder" : "Whether to show the header or not"
+      }
+    },
+    "show_footer" : {
+      "type" : "Select",
+      "config" : {
+        "options" : [ "Yes", "No" ],
+        "default_value" : "Yes",
+        "label" : "Show Footer",
+        "placeholder" : "Whether to show the full footer or not"
+      }
+    },
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : {
+          "key_message" : [ ],
+          "cta_box" : [ ],
+          "magazine_newsletter" : [ ],
+          "hero" : [ ],
+          "hero_2" : [ ],
+          "hero_overview" : [ ],
+          "full-width_teaser" : [ ],
+          "half-width_teaser" : [ ],
+          "image_grid" : [ ],
+          "author_description" : [ ],
+          "author_profile" : [ ],
+          "image_carousel" : [ ],
+          "table" : [ ]
+        },
+        "choices" : {
+          "banner" : {
+            "type" : "Slice",
+            "fieldset" : "Banner",
+            "description" : "A call-to-action banner spanning the full width of the screen.",
+            "icon" : "crop_7_5",
+            "display" : "list",
+            "non-repeat" : {
+              "richtext_ref" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "RichText Ref",
+                  "placeholder" : "An id used to refer to this slice from within a RichText, e.g. home-cta"
+                }
+              },
+              "kicker" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Kicker",
+                  "placeholder" : "The smaller heading above the main one"
+                }
+              },
+              "heading" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "heading",
+                  "placeholder" : "The main heading"
+                }
+              },
+              "button_text" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Button Text",
+                  "placeholder" : "What the button should say"
+                }
+              },
+              "button_url" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Button URL",
+                  "placeholder" : "Where the button should go"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "benefits" : {
+            "type" : "Slice",
+            "fieldset" : "Benefits",
+            "description" : "A variable-size list of benefits each with an image and a description.",
+            "icon" : "more_horiz",
+            "display" : "list",
+            "non-repeat" : {
+              "richtext_ref" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "RichText Ref",
+                  "placeholder" : "An id used to refer to this slice from within a RichText, e.g. home-cta"
+                }
+              },
+              "kicker" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Kicker",
+                  "placeholder" : "The smaller heading above the main one"
+                }
+              },
+              "heading" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Heading",
+                  "placeholder" : "The heading at the top"
+                }
+              },
+              "description" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, strong, em, hyperlink, image, list-item, o-list-item, o-list-item",
+                  "label" : "Description",
+                  "placeholder" : "The text below the heading"
+                }
+              },
+              "button_text" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Button Text",
+                  "placeholder" : "What's written on the button"
+                }
+              },
+              "button_url" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Button URL",
+                  "placeholder" : "Where the button should go"
+                }
+              },
+              "image_shape" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "Square", "Round" ],
+                  "default_value" : "Square",
+                  "label" : "Images Shape",
+                  "placeholder" : "Select shape for images in benefits"
+                }
+              }
+            },
+            "repeat" : {
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "Image"
+                }
+              },
+              "title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Title",
+                  "placeholder" : "The title of the benefit"
+                }
+              },
+              "description" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "paragraph, preformatted, strong, em, hyperlink, list-item, o-list-item, o-list-item",
+                  "label" : "Description",
+                  "placeholder" : "The description text for the benefit"
+                }
+              },
+              "link_text" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Link Text",
+                  "placeholder" : "What the link under the description says."
+                }
+              },
+              "link_url" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Link URL",
+                  "placeholder" : "Where the link under the description should go"
+                }
+              }
+            }
+          },
+          "comparison_cards" : {
+            "type" : "Slice",
+            "fieldset" : "Comparison Cards",
+            "description" : "A row of cards for comparing products etc.",
+            "icon" : "view_column",
+            "display" : "list",
+            "non-repeat" : {
+              "richtext_ref" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "RichText Ref",
+                  "placeholder" : "An id used to refer to this slice from within a RichText, e.g. home-cta"
+                }
+              },
+              "kicker" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Kicker",
+                  "placeholder" : "The smaller heading above the main one"
+                }
+              },
+              "heading" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Heading",
+                  "placeholder" : "The main heading"
+                }
+              },
+              "description" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, strong, em, hyperlink, image, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Description",
+                  "placeholder" : "The text block underneath the heading"
+                }
+              },
+              "footnotes" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, strong, em, hyperlink, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Footnotes",
+                  "placeholder" : "The smallprint underneath all the cards"
+                }
+              }
+            },
+            "repeat" : {
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "Image"
+                }
+              },
+              "heading" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Heading",
+                  "placeholder" : "The card title"
+                }
+              },
+              "subheading" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Subheading",
+                  "placeholder" : "The line with price or a description text"
+                }
+              },
+              "content" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, strong, em, hyperlink, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Content",
+                  "placeholder" : "A bulleted list or some text for the main section of the card"
+                }
+              },
+              "condition" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, strong, em, hyperlink, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Condition",
+                  "placeholder" : "Small print below the main content"
+                }
+              },
+              "button_text" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Button Text",
+                  "placeholder" : "What the button says"
+                }
+              },
+              "button_url" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Button URL",
+                  "placeholder" : "Where the button goes",
+                  "allowTargetBlank" : true
+                }
+              },
+              "link_text" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Link Text",
+                  "placeholder" : "What the link says"
+                }
+              },
+              "link_url" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Link URL",
+                  "placeholder" : "Where the link goes"
+                }
+              }
+            }
+          },
+          "comparison_table" : {
+            "type" : "Slice",
+            "fieldset" : "Comparison Table",
+            "description" : "A table comparing what's included in different packages.",
+            "icon" : "grid_on",
+            "display" : "list",
+            "non-repeat" : {
+              "richtext_ref" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "RichText Ref",
+                  "placeholder" : "An id used to refer to this slice from within a RichText, e.g. home-cta"
+                }
+              },
+              "heading" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Heading",
+                  "placeholder" : "The main heading"
+                }
+              },
+              "description" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, strong, em, hyperlink, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Description",
+                  "placeholder" : "The description text just below the header"
+                }
+              },
+              "table" : {
+                "type" : "Link",
+                "config" : {
+                  "select" : "document",
+                  "customtypes" : [ "table" ],
+                  "label" : "Table",
+                  "placeholder" : "Select the table to display"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "faq" : {
+            "type" : "Slice",
+            "fieldset" : "FAQ",
+            "description" : "A list of questions and answers.",
+            "icon" : "format_list_bulleted",
+            "display" : "list",
+            "non-repeat" : {
+              "richtext_ref" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "RichText Ref",
+                  "placeholder" : "An id used to refer to this slice from within a RichText, e.g. home-cta"
+                }
+              },
+              "kicker" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Kicker",
+                  "placeholder" : "The smaller heading above the main one"
+                }
+              },
+              "heading" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Heading",
+                  "placeholder" : "The main heading"
+                }
+              }
+            },
+            "repeat" : {
+              "question" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Question",
+                  "placeholder" : "The text of a question"
+                }
+              },
+              "answer" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Answer",
+                  "placeholder" : "The text of an answer"
+                }
+              }
+            }
+          },
+          "hero" : {
+            "type" : "Slice",
+            "fieldset" : "Hero",
+            "description" : "Full-width image section placed at the top of page.",
+            "icon" : "settings_overscan",
+            "display" : "list",
+            "non-repeat" : {
+              "richtext_ref" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "RichText Ref",
+                  "placeholder" : "An id used to refer to this slice from within a RichText, e.g. home-cta"
+                }
+              },
+              "clip_hero" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "false", "true" ],
+                  "default_value" : "false",
+                  "label" : "Clip Hero",
+                  "placeholder" : "select if this hero should be clipped"
+                }
+              },
+              "heading" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Heading",
+                  "placeholder" : "The largest heading at the top of the hero"
+                }
+              },
+              "subheading" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Subheading",
+                  "placeholder" : "The smaller-sized heading underneath the main one"
+                }
+              },
+              "button_text" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Button Text",
+                  "placeholder" : "What should be written on the button"
+                }
+              },
+              "button_url" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Button URL",
+                  "placeholder" : "Where the button should go"
+                }
+              },
+              "hero_image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 2400,
+                    "height" : null
+                  },
+                  "thumbnails" : [ {
+                    "name" : "tablet",
+                    "width" : 1984,
+                    "height" : null
+                  }, {
+                    "name" : "mobile",
+                    "width" : 1536,
+                    "height" : null
+                  } ],
+                  "label" : "Hero Image"
+                }
+              },
+              "trust_logo" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 261,
+                    "height" : 134
+                  },
+                  "thumbnails" : [ {
+                    "name" : "mobile",
+                    "width" : 160,
+                    "height" : 111
+                  } ],
+                  "label" : "Trust Logo"
+                }
+              },
+              "trust_logo_url" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Trust Logo URL",
+                  "placeholder" : "Where the trust logo links to when clicked"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "hero_2" : {
+            "type" : "Slice",
+            "fieldset" : "Hero 2",
+            "description" : "A hero with two half-width sections placed at the top of page.",
+            "icon" : "import_contacts",
+            "display" : "list",
+            "non-repeat" : {
+              "richtext_ref" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "RichText Ref",
+                  "placeholder" : "An id used to refer to this slice from within a RichText, e.g. home-cta"
+                }
+              },
+              "clip_hero" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "false", "true" ],
+                  "default_value" : "false",
+                  "label" : "Clip Hero",
+                  "placeholder" : "select if hero should be clipped"
+                }
+              },
+              "kicker" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Kicker",
+                  "placeholder" : "The smaller heading above the main one"
+                }
+              },
+              "heading" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Heading",
+                  "placeholder" : "The main heading"
+                }
+              },
+              "description" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, strong, em, hyperlink, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Description",
+                  "placeholder" : "The text block under the heading"
+                }
+              },
+              "button_text" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Button Text",
+                  "placeholder" : "What should be written on the button"
+                }
+              },
+              "button_url" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Button URL",
+                  "placeholder" : "Where the button should link to"
+                }
+              },
+              "hero_image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 1200,
+                    "height" : 1200
+                  },
+                  "thumbnails" : [ ],
+                  "label" : "Hero Image"
+                }
+              },
+              "show_image_on_mobile" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "true", "false" ],
+                  "default_value" : "true",
+                  "label" : "Show Image on Mobile",
+                  "placeholder" : "show image on mobile?"
+                }
+              },
+              "trust_logo" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : null,
+                    "height" : null
+                  },
+                  "thumbnails" : [ {
+                    "name" : "mobile",
+                    "width" : 160,
+                    "height" : 111
+                  } ],
+                  "label" : "Trust Logo"
+                }
+              },
+              "trust_logo_url" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Trust Logo URL",
+                  "placeholder" : "Where the trust logo links to when clicked"
+                }
+              },
+              "image_mode" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "Center", "Fill" ],
+                  "default_value" : "Center",
+                  "label" : "Image Mode",
+                  "placeholder" : "How the image should behave"
+                }
+              },
+              "height_mode" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "Fluid", "Fixed" ],
+                  "default_value" : "Fluid",
+                  "label" : "Height Mode",
+                  "placeholder" : "How the height of the hero is determined"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "hero_overview" : {
+            "type" : "Slice",
+            "fieldset" : "Hero Overview",
+            "description" : "A banner-like hero without image.",
+            "icon" : "crop_7_5",
+            "display" : "list",
+            "non-repeat" : {
+              "richtext_ref" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "RichText Ref",
+                  "placeholder" : "An id used to refer to this slice from within a RichText, e.g. home-cta"
+                }
+              },
+              "heading" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Heading",
+                  "placeholder" : "The largest heading at the top of the hero"
+                }
+              },
+              "description" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, strong, em, hyperlink, image, list-item, o-list-item, o-list-item",
+                  "label" : "Description",
+                  "placeholder" : "The text block under the heading"
+                }
+              },
+              "button_text" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Button Text",
+                  "placeholder" : "What the button says"
+                }
+              },
+              "button_url" : {
+                "type" : "Link",
+                "config" : {
+                  "allowTargetBlank" : true,
+                  "label" : "Button Url",
+                  "placeholder" : "Where the button should go"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "quick_access" : {
+            "type" : "Slice",
+            "fieldset" : "Quick Access",
+            "description" : "A few links with icons to quickly navigate elsewhere.",
+            "icon" : "fast_forward",
+            "display" : "list",
+            "non-repeat" : {
+              "richtext_ref" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "RichText Ref",
+                  "placeholder" : "An id used to refer to this slice from within a RichText, e.g. home-cta"
+                }
+              }
+            },
+            "repeat" : {
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 160,
+                    "height" : 160
+                  },
+                  "thumbnails" : [ ],
+                  "label" : "image"
+                }
+              },
+              "heading" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Heading",
+                  "placeholder" : "enter heading"
+                }
+              },
+              "info_text" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Info Text",
+                  "placeholder" : "enter read more link text here"
+                }
+              },
+              "info_url" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Info Url",
+                  "placeholder" : "link to read more page here"
+                }
+              },
+              "cta_text" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "CTA Text",
+                  "placeholder" : "enter cta button text here"
+                }
+              },
+              "cta_url" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "CTA Url",
+                  "placeholder" : "link to cta page"
+                }
+              },
+              "price" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Price",
+                  "placeholder" : "enter product price here"
+                }
+              },
+              "mobile_url" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Mobile Url",
+                  "placeholder" : "enter mobile link here. this is kept configurable to enable you to experiment which link works best"
+                }
+              },
+              "description" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label" : "description",
+                  "placeholder" : "description optional"
+                }
+              },
+              "url" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Url",
+                  "placeholder" : "keep url for now"
+                }
+              }
+            }
+          },
+          "quotes" : {
+            "type" : "Slice",
+            "fieldset" : "Quotes",
+            "description" : "A list of quotes with portraits and speech bubbles.",
+            "icon" : "format_quote",
+            "display" : "list",
+            "non-repeat" : {
+              "richtext_ref" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "RichText Ref",
+                  "placeholder" : "An id used to refer to this slice from within a RichText, e.g. home-cta"
+                }
+              },
+              "kicker" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Kicker",
+                  "placeholder" : "The smaller heading above the main one"
+                }
+              },
+              "heading" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Heading",
+                  "placeholder" : "The main heading"
+                }
+              },
+              "button_text" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Button Text",
+                  "placeholder" : "What the button below the quotes should say"
+                }
+              },
+              "button_url" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Button URL",
+                  "placeholder" : "Where the button should go"
+                }
+              }
+            },
+            "repeat" : {
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "Image"
+                }
+              },
+              "heading" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Heading",
+                  "placeholder" : "The heading for the quote"
+                }
+              },
+              "quote" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, strong, em, hyperlink, list-item, o-list-item, o-list-item",
+                  "label" : "Quote",
+                  "placeholder" : "The text of the quote itself"
+                }
+              },
+              "name" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Name",
+                  "placeholder" : "The person who gave the quote"
+                }
+              }
+            }
+          },
+          "rich_text" : {
+            "type" : "Slice",
+            "fieldset" : "Rich Text",
+            "description" : "A formatted block of text.",
+            "icon" : "subject",
+            "display" : "list",
+            "non-repeat" : {
+              "richtext_ref" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "RichText Ref",
+                  "placeholder" : "An id used to refer to this slice from within a RichText, e.g. home-cta"
+                }
+              },
+              "text" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label" : "text",
+                  "placeholder" : "Enter formatted text"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "newsletter" : {
+            "type" : "Slice",
+            "fieldset" : "Newsletter",
+            "description" : "newsletter slice",
+            "icon" : "markunread_mailbox",
+            "display" : "list",
+            "non-repeat" : {
+              "richtext_ref" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "RichText Ref",
+                  "placeholder" : "An id used to refer to this slice from within a RichText, e.g. home-cta"
+                }
+              },
+              "heading" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Heading",
+                  "placeholder" : "newsletter title"
+                }
+              },
+              "subscription_type" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "Hubspot" ],
+                  "label" : "Subscription Type",
+                  "placeholder" : "select newsletter subscription type"
+                }
+              },
+              "description" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "description",
+                  "placeholder" : "newsletter description"
+                }
+              },
+              "illustration_icon" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "Illustration Icon"
+                }
+              },
+              "footnote" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Footnote",
+                  "placeholder" : "newsletter footnote"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "key_message" : {
+            "type" : "Slice",
+            "fieldset" : "Key Message",
+            "description" : "pull quote with optional quote source",
+            "icon" : "format_quote",
+            "display" : "list",
+            "non-repeat" : {
+              "richtext_ref" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "RichText Ref",
+                  "placeholder" : "An id used to refer to this slice from within a RichText, e.g. home-cta"
+                }
+              },
+              "text" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label" : "text",
+                  "placeholder" : "enter quote text"
+                }
+              },
+              "source" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label" : "Source",
+                  "placeholder" : "quote source, can be a link or text"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "cta_box" : {
+            "type" : "Slice",
+            "fieldset" : "CTA Box",
+            "description" : "cta box slice",
+            "icon" : "stop",
+            "display" : "list",
+            "non-repeat" : {
+              "richtext_ref" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "RichText Ref",
+                  "placeholder" : "An id used to refer to this slice from within a RichText, e.g. home-cta"
+                }
+              },
+              "heading" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5",
+                  "label" : "Heading",
+                  "placeholder" : "Cta box title"
+                }
+              },
+              "subtitle" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Subtitle",
+                  "placeholder" : "cta box subtitle or description"
+                }
+              },
+              "button_text" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Button Text",
+                  "placeholder" : "cta button text"
+                }
+              },
+              "button_url" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Button Url",
+                  "placeholder" : "cta button url"
+                }
+              },
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "CTA Image"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "magazine_newsletter" : {
+            "type" : "Slice",
+            "fieldset" : "Magazine Newsletter",
+            "description" : "magazine newsletter slice",
+            "icon" : "work",
+            "display" : "list",
+            "non-repeat" : {
+              "richtext_ref" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "RichText Ref",
+                  "placeholder" : "An id used to refer to this slice from within a RichText, e.g. home-cta"
+                }
+              },
+              "heading" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5",
+                  "label" : "Heading",
+                  "placeholder" : "newsletter title"
+                }
+              },
+              "subscription_type" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "hubspot" ],
+                  "default_value" : "hubspot",
+                  "label" : "Subscription Type",
+                  "placeholder" : "type of subscription to be performed"
+                }
+              },
+              "description" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Description",
+                  "placeholder" : "newsletter description text"
+                }
+              },
+              "illustration_icon" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "Illustration Icon"
+                }
+              },
+              "footnote" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Footnote",
+                  "placeholder" : "footnote text"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "image_grid" : {
+            "type" : "Slice",
+            "fieldset" : "Image Grid",
+            "description" : "image grid slice",
+            "icon" : "add_a_photo",
+            "display" : "list",
+            "non-repeat" : {
+              "richtext_ref" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "RichText ref",
+                  "placeholder" : "An id used to refer to this slice from within a RichText, e.g. home-cta"
+                }
+              },
+              "grid_type" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "1 image", "2 images - mixed", "2 images - portrait", "3 images" ],
+                  "default_value" : "1 image",
+                  "label" : "Grid Type",
+                  "placeholder" : "select type of grid"
+                }
+              },
+              "description" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Description",
+                  "placeholder" : "describe images here"
+                }
+              }
+            },
+            "repeat" : {
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "Image"
+                }
+              }
+            }
+          },
+          "author_description" : {
+            "type" : "Slice",
+            "fieldset" : "Author Description",
+            "description" : "article author description slice",
+            "icon" : "assistant_photo",
+            "display" : "list",
+            "non-repeat" : {
+              "richtext_ref" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "RichText Ref",
+                  "placeholder" : "ref id used in referencing slice inside  rich text in an article for example"
+                }
+              },
+              "author" : {
+                "type" : "Link",
+                "config" : {
+                  "select" : "document",
+                  "customtypes" : [ "magazine_author" ],
+                  "label" : "author"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "author_profile" : {
+            "type" : "Slice",
+            "fieldset" : "Author Profile",
+            "description" : "Article author profile slice",
+            "icon" : "assistant",
+            "display" : "list",
+            "non-repeat" : {
+              "richtext_ref" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "RichText Ref",
+                  "placeholder" : "ref id used in referencing slice inside  rich text in an article for example"
+                }
+              },
+              "author" : {
+                "type" : "Link",
+                "config" : {
+                  "select" : "document",
+                  "customtypes" : [ "magazine_author" ],
+                  "label" : "Author"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "image_carousel" : {
+            "type" : "Slice",
+            "fieldset" : "Image Carousel",
+            "description" : "image carousel slice, image slides",
+            "icon" : "add_a_photo",
+            "display" : "list",
+            "non-repeat" : {
+              "richtext_ref" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "RichText Ref",
+                  "placeholder" : "slice ref to be used in referencing the slice in rich text"
+                }
+              }
+            },
+            "repeat" : {
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "Image"
+                }
+              }
+            }
+          },
+          "full-width_teaser" : {
+            "type" : "Slice",
+            "fieldset" : "FullWidth Teaser",
+            "description" : "A section with two headings, a block of text and an image/video that spans the full width of the screen.",
+            "icon" : "view_agenda",
+            "display" : "list",
+            "non-repeat" : {
+              "richtext_ref" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "RichText Ref",
+                  "placeholder" : "An id used to refer to this slice from within a RichText, e.g. home-cta"
+                }
+              },
+              "kicker" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Kicker",
+                  "placeholder" : "The smaller heading above the main one"
+                }
+              },
+              "heading" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Heading",
+                  "placeholder" : "The main heading"
+                }
+              },
+              "description" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, strong, em, hyperlink, list-item, o-list-item, o-list-item",
+                  "label" : "Description",
+                  "placeholder" : "The block of text below the heading"
+                }
+              },
+              "link_text" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Link Text",
+                  "placeholder" : "What the link underneath the description text should read"
+                }
+              },
+              "link_url" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Link URL",
+                  "placeholder" : "Where the link should go"
+                }
+              },
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 2400
+                  },
+                  "thumbnails" : [ {
+                    "name" : "tablet",
+                    "width" : 1984,
+                    "height" : null
+                  }, {
+                    "name" : "mobile",
+                    "width" : 1536,
+                    "height" : null
+                  } ],
+                  "label" : "Image"
+                }
+              },
+              "video_url" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Video URL",
+                  "placeholder" : "Specify either a video URL or an image to be shown in the teaser. YouTube and Vimeo URLs are supported."
+                }
+              },
+              "button_text" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Button Text",
+                  "placeholder" : "What the button at the bottom should say"
+                }
+              },
+              "button_url" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Button URL",
+                  "placeholder" : "Where the button at the bottom should go"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "half-width_teaser" : {
+            "type" : "Slice",
+            "fieldset" : "HalfWidth Teaser",
+            "description" : "A teaser with multiple sections alternating left/right.",
+            "icon" : "dns",
+            "display" : "list",
+            "non-repeat" : {
+              "richtext_ref" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "RichText Ref",
+                  "placeholder" : "An id used to refer to this slice from within a RichText, e.g. home-cta"
+                }
+              },
+              "images_shape" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "Round", "Square" ],
+                  "default_value" : "Round",
+                  "label" : "Images Shape",
+                  "placeholder" : "The shape of the images displayed for each section"
+                }
+              },
+              "links_or_buttons_" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "Buttons", "Links" ],
+                  "default_value" : "Buttons",
+                  "label" : "Links or Buttons?",
+                  "placeholder" : "What type of clickable element to use at the bottom of each section"
+                }
+              }
+            },
+            "repeat" : {
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "Image"
+                }
+              },
+              "kicker" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Kicker",
+                  "placeholder" : "The smaller heading above the main one"
+                }
+              },
+              "heading" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Heading",
+                  "placeholder" : "The main heading"
+                }
+              },
+              "description" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, strong, em, hyperlink, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Description",
+                  "placeholder" : "The text block underneath the heading"
+                }
+              },
+              "link_text" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Link Text",
+                  "placeholder" : "What the link/button should say"
+                }
+              },
+              "link_url" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Link URL",
+                  "placeholder" : "Where the link/button should go"
+                }
+              },
+              "promotion1" : {
+                "type" : "Link",
+                "config" : {
+                  "select" : "document",
+                  "customtypes" : [ "promotion" ],
+                  "label" : "Promotion"
+                }
+              }
+            }
+          },
+          "table" : {
+            "type" : "Slice",
+            "fieldset" : "Table",
+            "description" : "table component",
+            "icon" : "apps",
+            "display" : "list",
+            "non-repeat" : {
+              "richtext_ref" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "RichText Ref",
+                  "placeholder" : "reference name used to identify this slice in richtext"
+                }
+              },
+              "caption" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Caption",
+                  "placeholder" : "table caption"
+                }
+              },
+              "number_of_columns" : {
+                "type" : "Number",
+                "config" : {
+                  "label" : "Number of Columns",
+                  "placeholder" : "enter number of columns to be used by this table, defaults to 3"
+                }
+              },
+              "header_direction" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "horizontal", "vertical", "both" ],
+                  "default_value" : "horizontal",
+                  "label" : "Header Direction"
+                }
+              },
+              "column_widths" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Column widths",
+                  "placeholder" : "enter space separated column width values as numbers, eg 0.25 mean 25%"
+                }
+              },
+              "text_alignment" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "left", "center" ],
+                  "default_value" : "left",
+                  "label" : "Text Alignment"
+                }
+              }
+            },
+            "repeat" : {
+              "column_1" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Column 1",
+                  "placeholder" : "enter  this row's first column data here"
+                }
+              },
+              "column_2" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Column 2",
+                  "placeholder" : "enter  this row's second column data here"
+                }
+              },
+              "column_3" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Column 3",
+                  "placeholder" : "enter  this row's third column data here"
+                }
+              },
+              "column_4" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Column 4",
+                  "placeholder" : "enter  this row's fourth column data here"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

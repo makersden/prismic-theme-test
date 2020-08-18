@@ -1,0 +1,11 @@
+[{
+  "id": "dynamic_page",
+  "name": "Dynamic Page",
+  "repeatable": true,
+  "value": "dynamic_page.json"
+}, {
+  "id": "magazine_article",
+  "name": "Magazine Article",
+  "repeatable": true,
+  "value": "magazine_article.json"
+}]
